@@ -1,11 +1,15 @@
-def read_text(path):
-    with open(path, "r", encoding="utf-8") as f:
-        return f.read()
+from lab_Utils import read_text
 
-def write_text(path, content):
-    with open(path, "w", encoding="utf-8") as f:
-        f.write(content)
+def text_stats(path):
+    content = read_text(path)
+    lines = content.splitlines()
+    words = content.split()
+    chars = len(content)
+    return {"lines": len(lines), "words": len(words), "chars": chars}
 
-def count_lines(path):
-    with open(path, "r", encoding="utf-8") as f:
-        return sum(1 for _ in f)
+
+if __name__ == "__main__":
+    stats = text_stats("data.txt")
+    print("Statistics for data.txt:")
+    for key, value in stats.items():
+        print(f"  {key}: {value}")
