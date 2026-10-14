@@ -1,5 +1,6 @@
 from lab_Utils import read_text
 
+# Функция для сбора статистики строк, слов и символов в файле
 def text_stats(path):
     content = read_text(path)
     lines = content.splitlines()
